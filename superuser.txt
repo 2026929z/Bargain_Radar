@@ -1,0 +1,3 @@
+username - trader
+email - abc@abc.com
+password - digital
