@@ -109,7 +109,7 @@ def single_blog(request):
     return render(request, 'radar/blog-single.html')
 
 def error(request):
-    return(request, 'radar/404.html')
+    return render(request, 'radar/404.html')
 
 ##def remove_offer_basket(request):
 
