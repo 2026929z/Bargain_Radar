@@ -70,8 +70,8 @@ PASSWORD_HASHERS = (
 REGISTRATION_OPEN = True
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
-LOGIN_REDIRECT_URL = '/bargainradar/'
-LOGIN_URL = '/bargainradar/login/'
+LOGIN_REDIRECT_URL = '/bargain_radar/'
+LOGIN_URL = '/bargain_radar/login/'
 
 WSGI_APPLICATION = 'bargain_radar_project.wsgi.application'
 

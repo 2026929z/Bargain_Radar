@@ -9,7 +9,11 @@ def index(request):
     feature_offer1 = Offer.objects.get(name='McDonald Junk')
     feature_offer2 = Offer.objects.get(name='Lab 715')
     feature_offer3 = Offer.objects.get(name='Water from a pipe')
-    context_dict = {'offer1': feature_offer1, 'offer2': feature_offer2, 'offer3': feature_offer3}
+
+    categories_list = Category.objects.all()
+    offers_list = Offer.objects.all()
+
+    context_dict = {'offer1': feature_offer1, 'offer2': feature_offer2, 'offer3': feature_offer3,'categories':categories_list,'offers':offers_list}
     
     return render(request,'radar/index.html', context_dict)
 
@@ -21,10 +25,10 @@ def category(request, category_name_slug):
 
     return render(request,'radar/category.html', context_dict)
 
-def offer(request,category_name_slug,offer_name_slug):
-    category = Category.objects.get(slug=category_name_slug)
-    offer = Offer.objects.get(slug=offer_name_slug)
-    return render(request,'radar/offer.html')
+def offer(request,offer_id):
+    offer = Offer.objects.get(id = offer_id)
+    context_dict = {'offer':offer}
+    return render(request,'radar/offer.html', context_dict)
 
 def showLogin(request):
     return render (request, 'radar/login.html')
