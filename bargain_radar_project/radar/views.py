@@ -10,10 +10,16 @@ def index(request):
     feature_offer2 = Offer.objects.get(name='Lab 715')
     feature_offer3 = Offer.objects.get(name='Water from a pipe')
 
+    top_offers = Offer.objects.filter(top = True)
     categories_list = Category.objects.all()
     offers_list = Offer.objects.all()
 
-    context_dict = {'offer1': feature_offer1, 'offer2': feature_offer2, 'offer3': feature_offer3,'categories':categories_list,'offers':offers_list}
+    context_dict = {'offer1': feature_offer1,
+                    'offer2': feature_offer2,
+                    'offer3': feature_offer3,
+                    'categories':categories_list,
+                    'offers':offers_list,
+                    'top_offers':top_offers}
     
     return render(request,'radar/index.html', context_dict)
 
