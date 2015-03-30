@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title_block %}Cart {% endblock %}
+
+{% block body_block %}
+    {% if items %}
+	    <section id="cart_items">
+		<div class="container">
+			<div class="table-responsive cart_info">
+				<table class="table table-condensed">
+					<thead>
+						<tr class="cart_menu">
+							<td class="image">Item</td>
+							<td class="description"></td>
+							<td class="price">Price</td>
+							<td></td>
+						</tr>
+					</thead>
+					<tbody>
+
+						{% for item in items %}
+
+							<tr>
+								<td class="cart_product">
+									<img width = '200' height = '200' src="{% static item.picture.name %}">
+								</td>
+								<td class="cart_description">
+									<h4><a href="">{{item.name}}</a></h4>
+									<p>{{item.id}}</p>
+								</td>
+								<td class="cart_price">
+									<p>{{item.price}}</p>
+								</td>
+								<td class="cart_delete"><a class="cart_quantity_delete" href="{% url 'remove_offer' item.id %}"><i class="fa fa-times"></i></a></td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+            <div class="breadcrumbs">
+				<ol class="breadcrumb">
+				  <li><a href="{% url 'index' %}">Home</a></li>
+				  <li class="active">My offers</li>
+				</ol>
+			</div>
+		</div>
+	</section>
+    {% endif %}
+
+{% endblock %}
