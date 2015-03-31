@@ -246,7 +246,7 @@ def add_offer(request):
     else:
         form = OfferForm()
 
-    context_dict = {'categories': categories, 'form': form}
+    context_dict = {'categories': categories, 'form': form, 'customer': representative}
 
     return render(request, 'radar/add_offer.html', context_dict)
 

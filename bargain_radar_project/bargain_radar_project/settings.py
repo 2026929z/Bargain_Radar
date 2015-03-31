@@ -30,13 +30,16 @@ STATICFILES_DIRS = [
 SECRET_KEY = 'mk*$^uuu%q9_05xejy3qn*n_^e8bat8g0ts5cw6fu&g*w%5j+o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['digitaltraders.pythonanywhere.com']
+ALLOWED_HOSTS = []
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Application definition
