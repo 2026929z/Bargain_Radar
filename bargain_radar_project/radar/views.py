@@ -264,7 +264,7 @@ def details(request):
 
 
 def error(request):
-    return render(request, 'radar/404.html')
+    return render(request, '404.html')
 
 
 def account(request):
