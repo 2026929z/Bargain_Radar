@@ -35,6 +35,16 @@ class Offer(models.Model):
     description = models.TextField(max_length=300, default="")
     picture = models.ImageField(upload_to='offer_images', default='offer_images/default_offer_img.jpg')
 
+    def save(self, *args, **kwargs):
+        if self.price < 0:
+            self.price = 0.0
+        if self.amount < 0:
+            self.amount = 0
+        if self.views < 0:
+            self.views = 0
+        if self.likes < 0:
+            self.likes = 0
+
     def __unicode__(self):
         return self.name
 
