@@ -59,8 +59,12 @@ def showLogin(request):
 
 
 def contact(request):
-    user = User.objects.get(username=request.user.username)
-    customer = CustomerProfile.objects.get(user=user)
+    try:
+        user = User.objects.get(username=request.user.username)
+        customer = CustomerProfile.objects.get(user=user)
+    except:
+        user = None
+        customer = None
 
     return render(request, 'radar/contact-us.html', {'customer': customer})
 
@@ -246,7 +250,7 @@ def add_offer(request):
     else:
         form = OfferForm()
 
-    context_dict = {'categories': categories, 'form': form, 'customer': representative}
+    context_dict = {'categories': categories, 'form': form}
 
     return render(request, 'radar/add_offer.html', context_dict)
 
